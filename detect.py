@@ -67,8 +67,8 @@ def detect(image_path):
         try :
             rectangle_list = cascade_dic[superLabel].detectMultiScale(
                                     image=gray,
-                                    scaleFactor=1.1, 
-                                    minNeighbors=50, 
+                                    scaleFactor=1.1,
+                                    minNeighbors=50,
                                     minSize=(400,400),
                                     maxSize=(1000,1000)
                                 )
@@ -86,9 +86,10 @@ def detect(image_path):
             big_list_of_rectangles.append((ex,ey,ew,eh))
 
     #elemination process
-    tolerance_pixel_value = 150
+    tolerance_pixel_value = 75
     w_tolerance = 50
     h_tolerance = 50
+    print("[INFO] big_list_of_rectangles :",big_list_of_rectangles)
     final_rectangle_list = eleminateRedondantRect(big_list_of_rectangles,
                                                   tolerance_pixel_value,
                                                   w_tolerance,
